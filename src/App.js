@@ -1,23 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 
+//TODO View all of my email messages (subject line + sender)
+//TODO View one of my email messages with all of its details
+//TODO Send an email
+//TODO Search for a specific email by subject
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>CheckPoint Review</h1>
     </div>
   );
 }
