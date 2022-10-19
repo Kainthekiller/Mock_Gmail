@@ -1,38 +1,44 @@
 import  {useState} from "react";
-
-
+import {TextField} from "@mui/material";
+import {Button} from "@mui/material";
+import Box from "@mui/material/Box";
 
 function PrintSingleEmail(props)
 {
     //Use State
-    const [searchItem, setSearchItem] = useState("");
+    const [singleEmail, setSingleEmail] = useState("")
+
+    //Use Effect
 
     //Custom Method
-    // const getSearchItems = () => {
-    //     fetch(`http://localhost:3001/search?query=${searchItem}`)
-    //         .then(res => res.json())
-    //         .then((data) => {
-    //             props.allEmails(data);
-    //         })
-    // }
+    function getSingleEmail(id) {
+        fetch(`http://localhost:3001/emails/${id}`)
+            .then(response => {
+                return response.json()
+            })
+            .then((responseInJSON) => {
+                setSingleEmail(responseInJSON);
+            })
 
+    }
 
-
-    //Main Return
-
-    return (
+    //Main Logic
+    return(
         <>
-            {/*<h1>Print Single Email Logic Area</h1>*/}
-            {/*<input*/}
-            {/*type={"text"}*/}
-            {/*placeholder={"Type In an Id To Search For"}*/}
-            {/*value={searchItem}*/}
-            {/*onChange={(event) => {setSearchItem(event.target.value)}}*/}
-            {/*/>*/}
-            {/*<button onClick={getSearchItems}>Submit</button>*/}
+            <TextField id="outlined-basic" label="Search By ID" variant="outlined"
+                       onChange={event => {
+                           setSingleEmail(event.target.value)
+                       }}
+            />
+                       <Box component="span" sx={{ m: 2, border: '2px dashed grey' }}>
+                       <Button type={"submit"} variant="contained" onClick={() => getSingleEmail(singleEmail)}>Get Single Email & Subject</Button>
+                       </Box>
+                <p>{singleEmail.id}</p>
+            <p>{singleEmail.sender}</p>
+            <p>{singleEmail.message}</p>
+
         </>
     )
-
 
 }
 
