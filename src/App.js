@@ -70,6 +70,7 @@ function App() {
 
             {/*Send Email Logic*/}
            <SendEmail></SendEmail>
+            {/*Send Email Logic*/}
 
         </div>
     );
