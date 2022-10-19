@@ -6,7 +6,7 @@ function PrintAllEmailsController(props)
 {
     //Main Return
     return  (
-    <>
+    <div>
         {
             props.allEmails.map(function (email) {
                   const  {id, subject,sender} = email;
@@ -18,10 +18,9 @@ function PrintAllEmailsController(props)
                       </div>
                   )
 
-
             } )
         }
-    </>
+    </div>
     )
 }
 
